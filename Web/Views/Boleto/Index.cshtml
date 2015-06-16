@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Index";
+    var boleto = ViewBag.Boleto as string;
+}
+
+<h2 class="hidden-print">Gerar Boleto</h2>
+
+
+<form action="/boleto" method="post" class="hidden-print">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Vencimento</label>
+                <input type="date" class="form-control" name="vencimento" required />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label>Valor</label>
+            <input type="number" class="form-control" name="valor" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label>CPF</label>
+            <input type="text" class="form-control" name="cpf" required />
+        </div>
+        <div class="col-md-4">
+            <label>Nome</label>
+            <input type="text" class="form-control" name="nome" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label>End</label>
+            <input type="text" class="form-control" name="end" required />
+        </div>
+        <div class="col-md-4">
+            <label>Bairro</label>
+            <input type="text" class="form-control" name="bairro" required />
+        </div>
+        <div class="col-md-4">
+            <label>Cidade</label>
+            <input type="text" class="form-control" name="cidade" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label>CEP</label>
+            <input type="text" class="form-control" name="cep" required />
+        </div>
+        <div class="col-md-4">
+            <label>UF</label>
+            <input type="text" class="form-control" name="uf" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <br />
+            <br />
+            <button type="submit" class="btn btn-success btn-block">Gerar Boleto</button>
+        </div>
+    </div>
+</form>
+
+@if (!string.IsNullOrEmpty(boleto))
+{
+    <div>
+        @Html.Raw(boleto)
+    </div>
+} 
